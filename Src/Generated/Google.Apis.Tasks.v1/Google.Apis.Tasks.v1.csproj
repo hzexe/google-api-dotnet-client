@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <!-- nupkg information -->
   <PropertyGroup>
@@ -45,7 +45,7 @@
 
   <!-- build properties -->
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard1.3;netstandard1.0;net45;net40</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\..\google.apis.snk</AssemblyOriginatorKeyFile>
     <DebugType>portable</DebugType>
@@ -61,8 +61,10 @@
   
   <!-- per-target dependencies -->
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="Google.Apis" Version="1.48.0" />
-    <PackageReference Include="Google.Apis.Auth" Version="1.48.0" />
+    <ProjectReference Include="..\..\Support\Google.Apis\Google.Apis.csproj" />
+    <ProjectReference Include="..\..\Support\Google.Apis.Auth\Google.Apis.Auth.csproj" />
+    <!--<PackageReference Include="Google.Apis" Version="1.48.0" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.48.0" />-->
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.3'">
